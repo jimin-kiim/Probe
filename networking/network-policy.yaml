@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: allow-client-to-server
+
+spec:
+  podSelector:
+    matchLabels:
+      role: server
+
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            role: client
+      ports:
+        - protocol: TCP
+          port: 3000
+  policyTypes:
+    - Ingress

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-server
+  labels:
+    role: server
+
+spec:
+  containers:
+    - name: express
+      image: kjmiim/k8s-networking:latest
+      ports:
+        - containerPort: 3000
+      env:
+        - name: NAME
+          value: pod-server
