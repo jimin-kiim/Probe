@@ -21,7 +21,7 @@
 
    ```kubectl get pods```
 
-7. 파일에 메시지 저장
+7. 파일에 메시지 저장 (service 통해 post 요청 전송)
 
    ```
    kubectl run curl --image=curlimages/curl -it --rm --restart=Never -- \
@@ -29,7 +29,7 @@
    -d '{"message":"hello from pvc"}' http://pv-service:3000 
    ```
 
-8. 파일 메시지 읽기
+8. 파일 메시지 읽기 (service 통해 get 요청 전송)
 
    ```
    kubectl run curl --image=curlimages/curl -it --rm --restart=Never \ 

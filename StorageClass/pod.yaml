@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: sc-demo
+  labels: 
+    app: sc-demo
+spec:
+  containers:
+    - name: express
+    
