@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: express-rs
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: express-rs
+
+  template:
+    metadata:
+      labels:
+        app: express-rs
+
+    spec:
+      containers:
+        - name: express
+          image: kjmiim/k8s-rs:latest
+          ports:
+            - containerPort: 3000
