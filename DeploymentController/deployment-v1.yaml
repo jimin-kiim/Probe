@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: express-deploy
+    
+spec:
+  replicas: 2
+    
+  selector:
+    matchLabels:
+      app: express
+        
+  template:
+    metadata:
+      labels:
+        app: express
+          
+    spec: 
+      containers:
+        - name: express
+          image: kjmiim/k8s-deploy:v1
+          imagePullPolicy: Always
+            
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_VERSION
+              value: "v1"
