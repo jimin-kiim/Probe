@@ -1,0 +1,24 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+  
+metadata:
+  name: hpa-demo
+    
+spec:
+# 확장 대상 deployment 
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hpa-demo
+      
+  minReplicas: 1
+  maxReplicas: 5
+  
+  # 스케일링 조건 
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
