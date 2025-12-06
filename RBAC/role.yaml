@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+  
+# Role의 정보
+metadata:
+  name: pod-reader
+  namespace: default
+    
+# 권한 규칙 목록
+rules:
+  # 권한 규칙
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]

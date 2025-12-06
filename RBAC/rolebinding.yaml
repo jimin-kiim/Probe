@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+
+# RoleBinding 정보
+metadata:
+  name: bind-pod-reader
+  namespace: default
+
+# role 부여 대상 명시
+subjects:
+  - kind: User
+    name: dev-user
+    apiGroup: rbac.authorization.k8s.io
+
+# 참조 Role 명시 
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
