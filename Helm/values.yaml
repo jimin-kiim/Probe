@@ -1,0 +1,13 @@
+replicaCount: 2
+  
+image:
+  repository: kjmiim/k8s-pod
+  tag: latest
+  pullPolicy: IfNotPresent
+    
+service:
+  type: ClusterIP
+  port: 3000
+    
+containerPort: 3000
+name: kjmiim
